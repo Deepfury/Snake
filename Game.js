@@ -20,7 +20,7 @@
 		} // fin draw
 
 		static generate(){
-			return new food (Random.get(0,500), Random.get(0,300))
+			return new food (Random.get(0,490), Random.get(0,290))
 		}// fin generate
 
 	}// fin Food
