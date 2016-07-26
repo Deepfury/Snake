@@ -90,8 +90,6 @@
 		} // fin Hit
 
 		hitBorder(){
-			console.log("x:"+this.x)
-			console.log("y:"+this.y)
 			return this.x > 490 || this.x < 0 || this.y > 290 || this.y < 0
 		}
 
@@ -187,7 +185,9 @@
 		if (snake.dead()) {
 			console.log("Se acabo")
 			window.clearInterval(animacion)
-			alert("Su puntuacion fue: "+puntos)
+			ctx.font = "20px serif";
+			ctx.fillText("Hello world", 150, 50);
+			//alert("Su puntuacion fue: "+puntos)
 		}
 	},1000/5)
 
