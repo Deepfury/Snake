@@ -39,7 +39,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			// fin constructor
 
 			value: function draw() {
+				ctx.fillStyle = "rgb(0, 162, 232)";
 				ctx.fillRect(this.x, this.y, this.width, this.height);
+				ctx.fillStyle = "rgb(0, 0, 0)";
 			}
 		}], [{
 			key: "generate",

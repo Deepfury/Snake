@@ -16,7 +16,10 @@
 		}// fin constructor
 
 		draw(){
+			ctx.fillStyle = "rgb("+Random.get(0,255)+","+Random.get(0,255)+","+Random.get(0,255)+")";
+			//ctx.fillStyle = "rgb(0, 162, 232)";
 			ctx.fillRect(this.x,this.y, this.width,this.height)
+			ctx.fillStyle = "rgb(0,0,0)";
 		} // fin draw
 
 		static generate(){
@@ -139,7 +142,7 @@
 		}
 
 		eat(){
-			puntos++
+			puntos++;
 			this.head.add()
 		}
 
@@ -151,7 +154,7 @@
 
 	const canvas = document.getElementById('canvas')
 	const ctx = canvas.getContext('2d') //el contexto del dibujo
-	const puntos = 0
+	var puntos = 0;
 
 	const snake = new Snake()
 	let foods = [] //arreglo de comidas
@@ -190,7 +193,7 @@
 			ctx.fillText("Su puntuacion fue de: "+puntos, 150, 50);
 			//alert("Su puntuacion fue: "+puntos)
 		}
-	},1000/5)
+	},1000/20)
 
 	// intervalo de tiempo para crear la comida
 	setInterval(function(){
