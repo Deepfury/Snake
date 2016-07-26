@@ -270,10 +270,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		drawFood();
 
 		if (snake.dead()) {
-			console.log("Se acabo");
+			//console.log("Se acabo")
 			window.clearInterval(animacion);
+			ctx.clearRect(0, 0, 500, 300);
 			ctx.font = "20px serif";
-			ctx.fillText("Hello world", 150, 50);
+			ctx.fillText("Su puntuacion fue de: " + puntos, 150, 50);
 			//alert("Su puntuacion fue: "+puntos)
 		}
 	}, 1000 / 5);
