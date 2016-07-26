@@ -46,7 +46,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			// fin draw
 
 			value: function generate() {
-				return new food(Random.get(0, 500), Random.get(0, 300));
+				return new food(Random.get(0, 490), Random.get(0, 290));
 			} // fin generate
 
 		}]);
@@ -157,8 +157,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			// fin Hit
 
 			value: function hitBorder() {
-				console.log("x:" + this.x);
-				console.log("y:" + this.y);
 				return this.x > 490 || this.x < 0 || this.y > 290 || this.y < 0;
 			}
 		}]);
@@ -274,7 +272,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		if (snake.dead()) {
 			console.log("Se acabo");
 			window.clearInterval(animacion);
-			alert("Puntuación: " + puntos);
+			ctx.font = "20px serif";
+			ctx.fillText("Hello world", 150, 50);
+			//alert("Su puntuacion fue: "+puntos)
 		}
 	}, 1000 / 5);
 
