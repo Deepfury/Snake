@@ -187,7 +187,7 @@
 		if (snake.dead()) {
 			console.log("Se acabo")
 			window.clearInterval(animacion)
-			alert("Puntuacion fue: "+puntos)
+			alert("Su puntuacion fue: "+puntos)
 		}
 	},1000/5)
 
