@@ -66,14 +66,17 @@
 			this.copy()
 			this.x += 10
 		} // fin right
+
 		left(){
 			this.copy()
 			this.x -= 10
 		}// fin left
+
 		up(){
 			this.copy()
 			this.y -= 10
 		}// fin up
+
 		down(){
 			this.copy()
 			this.y += 10
@@ -92,9 +95,9 @@
 			return squareHit (this,head)
 		} // fin Hit
 
-		hitBorder(){
+		hitBorder(){ //Para identificar si golpea los bordes
 			return this.x > 490 || this.x < 0 || this.y > 290 || this.y < 0
-		}
+		}//fin hitborder
 
 	} // fin Square
 
@@ -109,7 +112,7 @@
 			this.head.add()
 			this.head.add()
 			this.head.add()
-		}
+		} //fin constructor
 
 		draw(){
 			this.head.draw()
