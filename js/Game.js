@@ -16,29 +16,36 @@
 		}// fin constructor
 
 		draw(){
-			ctx.fillStyle = "rgb("+Random.get(0,255)+","+Random.get(0,255)+","+Random.get(0,255)+")";
-			//ctx.fillStyle = "rgb(0, 162, 232)";
+			// ctx.beginPath()
+			// ctx.arc(this.x,this.y, this.width,this.height,2*Math.PI)
+			// ctx.fill()
+			// const colorFood = '#'+Math.floor(Math.random()*16777215).toString(16);
+			// ctx.fillStyle=colorFood;
 			ctx.fillRect(this.x,this.y, this.width,this.height)
-			ctx.fillStyle = "rgb(0,0,0)";
+			// var img = document.getElementById("food");
+   //  		ctx.drawImage(img, 10, 10);
+
 		} // fin draw
 
 		static generate(){
-			return new food (Random.get(0,490), Random.get(0,290))
+			return new food (Random.get(0,500), Random.get(0,300))
 		}// fin generate
 
-	}// fin Food
+	}// fin food
 
 	class Square{
 		constructor(x,y){
 			this.x = x
 			this.y = y
-			this.width = 10
-			this.height = 10
+			this.width = 6
+			this.height = 0
 			this.back = null //ultimo cuadrado
 		}//fin constructor
 
 		draw(){
-			ctx.fillRect(this.x, this.y,this.width,this.height)
+			ctx.beginPath();
+			ctx.arc(this.x, this.y,this.width,this.height,2*Math.PI)
+			ctx.fill()
 			if (this.hasBack()){
 				this.back.draw()
 			}
@@ -76,7 +83,7 @@
 			this.copy()
 			this.y -= 10
 		}// fin up
-
+		
 		down(){
 			this.copy()
 			this.y += 10
@@ -95,9 +102,11 @@
 			return squareHit (this,head)
 		} // fin Hit
 
-		hitBorder(){ //Para identificar si golpea los bordes
+		hitBorder(){
+			console.log("x:"+this.x)
+			console.log("y:"+this.y)
 			return this.x > 490 || this.x < 0 || this.y > 290 || this.y < 0
-		}//fin hitborder
+		}
 
 	} // fin Square
 
@@ -105,14 +114,14 @@
 	class Snake{
 
 		constructor(){
-			this.head = new Square(100,0)
+			this.head = new Square(100,40)
 			this.draw()
 			this.direction = "right"
 			this.head.add()
 			this.head.add()
 			this.head.add()
 			this.head.add()
-		} //fin constructor
+		}
 
 		draw(){
 			this.head.draw()
@@ -145,8 +154,9 @@
 		}
 
 		eat(){
-			puntos++;
+			puntos++
 			this.head.add()
+			console.log("Entra al Eat")
 		}
 
 		dead(){
@@ -155,12 +165,12 @@
 
 	} // fin Snake
 
-	const canvas = document.getElementById('canvas')
-	const ctx = canvas.getContext('2d') //el contexto del dibujo
-	var puntos = 0;
+	var canvas = document.getElementById('canvas')
+	var ctx = canvas.getContext('2d') //el contexto del dibujo
+	var puntos = 0
 
 	const snake = new Snake()
-	let foods = [] //arreglo de comidas
+	var foods = [] //arreglo de comidas
 
 	//document.getElementById('puntuacion').innerHTML=puntos;	
 
@@ -189,14 +199,11 @@
 		drawFood()
 
 		if (snake.dead()) {
-			//console.log("Se acabo")
+			console.log("Se acabo")
 			window.clearInterval(animacion)
-			ctx.clearRect(0,0,500,300);
-			ctx.font = "20px serif";
-			ctx.fillText("Su puntuacion fue de: "+puntos, 150, 50);
-			//alert("Su puntuacion fue: "+puntos)
+			alert("Puntuacion fue: "+puntos)
 		}
-	},1000/20)
+	},1000/5)
 
 	// intervalo de tiempo para crear la comida
 	setInterval(function(){
